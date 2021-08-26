@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script>
+    
+</script>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        margin:20px 200px; 
+        padding: 15px;
+        background-color: black;
+    }
+    p {
+        border: 2px solid #ff0000;
+        padding: 5px 10px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+    .close {
+        position:relative;
+        top: 0px;
+        right: 0px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+</style>
+</head>
+
+<body>
+    <h1 style="background-color:blue; text-align: center;">To-do-list</h1>
+    <input style="width: 70%;padding: 5px 10px;margin-right: 0px;font-style: bold;" placeholder="Title" id="inp1">
+    <input type="submit" style="width:29%;padding:5px 10px;margin-left: 0px;background-color:crimson; cursor:pointer;" onclick="create()">
+    <br>
+    <br>
+    <div id="div1">
+
+    </div>
+    <script>
+        function create(){
+        var para = document.createElement("p");
+        //int k=
+        var node = document.createTextNode(document.getElementById('inp1').value);
+        para.appendChild(node);
+
+    var element = document.getElementById("div1");
+    element.appendChild(para);
+    document.getElementById('inp1').value="";
+    var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  para.appendChild(span);
+  var close = document.getElementsByClassName("close");
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+ }
+}
+        }
+ /*   var myNodelist = document.getElementsByTagName("p");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}*/
+    </script>
+</body>
+</html>
